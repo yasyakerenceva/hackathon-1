@@ -7,8 +7,8 @@ class SoundModule extends Module {
   trigger() {
     const sound = new Audio(`./assets/sound/${Math.floor(Math.random() * (12 - 1) + 1)}.mp3`);
     sound.addEventListener("canplaythrough", (event) => {
-      sound.play()
-    },{once: true})
+      sound.play();
+    }, { once: true })
   }
 }
 export default SoundModule;
