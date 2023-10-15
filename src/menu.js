@@ -3,6 +3,7 @@ import { getPositionMenuToWindow } from "./utils";
 import { BackgroundModule } from "./modules/background.module";
 import { CustomMessageModule } from "./modules/customMessage.module";
 import SoundModule from "./modules/sound.module";
+import { DayWeekModule } from "./modules/dayWeek.module";
 
 export class ContextMenu extends Menu {
   constructor(selector) {
@@ -44,6 +45,9 @@ export class ContextMenu extends Menu {
         const soundModule = new SoundModule(type, text);
         soundModule.trigger();
         break;
+      case "week":
+        const dayWeekModule = new DayWeekModule(type, text);
+        dayWeekModule.trigger();
     }
   }
 

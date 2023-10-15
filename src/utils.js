@@ -42,3 +42,9 @@ export function getPositionMenuToWindow(event, menu) {
     menu.style.top = `${clientY}px`;
   }
 }
+
+export function changeFirstCharString(str) {
+  if (str.length) {
+    return str[0].toUpperCase() + str.slice(1);
+  }
+}

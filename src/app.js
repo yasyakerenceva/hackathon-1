@@ -15,6 +15,10 @@ const options = [
     type: "sound",
     text: "Воспроизвести звук",
   },
+  {
+    type: "week",
+    text: "Показать день недели",
+  },
 ];
 
 const contextMenu = new ContextMenu("#menu");
