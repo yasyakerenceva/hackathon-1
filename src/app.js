@@ -19,6 +19,10 @@ const options = [
     type: "week",
     text: "Показать день недели",
   },
+  {
+    type: "timer",
+    text: "Показать таймер",
+  },
 ];
 
 const contextMenu = new ContextMenu("#menu");

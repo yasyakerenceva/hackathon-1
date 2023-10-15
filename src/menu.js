@@ -4,6 +4,7 @@ import { BackgroundModule } from "./modules/background.module";
 import { CustomMessageModule } from "./modules/customMessage.module";
 import SoundModule from "./modules/sound.module";
 import { DayWeekModule } from "./modules/dayWeek.module";
+import { TimerModule } from "./modules/timer.module";
 
 export class ContextMenu extends Menu {
   constructor(selector) {
@@ -48,6 +49,11 @@ export class ContextMenu extends Menu {
       case "week":
         const dayWeekModule = new DayWeekModule(type, text);
         dayWeekModule.trigger();
+        break;
+      case "timer":
+        const timerModule = new TimerModule(type, text);
+        timerModule.trigger();
+        break;
     }
   }
 
