@@ -5,25 +5,6 @@ export class ClickCounterModule extends Module {
     super(type, text);
   }
 
-  // trigger() {
-  //   const divClick = document.getElementById("click");
-  //   const clickCounter = divClick.addEventListener("click", e);
-  //   if (clickCounter) {
-  //     let clickCount = 0;
-  //     const clickHandler = () => {
-  //       clickCount++;
-  //     };
-  //     const windowClick = document.createElement("div");
-  //     windowClick.className = "click-counter";
-  //     document.body.append(windowClick);
-
-  //     setTimeout(() => {
-  //       window.removeEventListener("click", clickHandler);
-  //       windowClick.innerText = `Сделано: ${clickCount} кликов`;
-  //       window.addEventListener("click", clickHandler);
-  //     }, 3000);
-  //   }
-  // }
   trigger() {
     const windowClick = document.createElement("div");
     windowClick.className = "click-counter";
@@ -38,10 +19,11 @@ export class ClickCounterModule extends Module {
 
     setTimeout(() => {
       window.removeEventListener("click", clickHandler);
+      windowClick.classList.add("js-click-counter");
       windowClick.innerText = `Сделано: ${clickCount} кликов`;
       setTimeout(() => {
         windowClick.remove();
-      }, 1000);
+      }, 2000);
     }, 3000);
   }
 }

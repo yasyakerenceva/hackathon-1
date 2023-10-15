@@ -6,6 +6,12 @@ export class TimerModule extends Module {
   }
 
   trigger() {
+    const timerContainerElement = document.querySelector("#timer");
+
+    if (timerContainerElement?.closest("#timer")) {
+      timerContainerElement.remove();
+    }
+
     // Создание блока таймера
     const timerContainer = document.createElement("div");
     timerContainer.id = "timer";
