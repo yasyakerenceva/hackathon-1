@@ -1,34 +1,50 @@
 export function random(min, max) {
-  return Math.round(min - 0.5 + Math.random() * (max - min + 1))
+  return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 }
 
-/* Получение рандомного цвета, где
+export function generateRandomString() {
+  const randomLength = random(10, 20);
+
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+  for (let i = 0; i < randomLength; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
+export function getRandomColor() {
+  /* Получение рандомного цвета, где
     - 16777216 = 3 (RGB) * 256 (max значение для каждого цвета);
     - (Math.random() * 16777216) - получаем случайное число в диапозоне от 0 до 16777215.99;
     - .toString(16) - преобразования числа в его шестнадцатеричное
-    */
-export function getRandomColor() {
-      const randomColor = `#${Math.floor(Math.random() * 16777216).toString(16)}`;
-      return randomColor;
+  */
+  const randomColor = `#${Math.floor(Math.random() * 16777216).toString(16)}`;
+  return randomColor;
 }
 
-// Создание блока таймера
-// export function createTimerBlok() {
-//   const timerContainer = document.createElement('div');
-//   timerContainer.id = 'timer';
-  
-//   const timeInput = document.createElement('input');
-//   timeInput.type = 'number';
-//   timeInput.id = 'time';
-//   timeInput.placeholder = 'Введите длительность в секундах';
-//   timeInput.style.width = '250px';
-  
-//   const startButton = document.createElement('button');
-//   startButton.id = 'start';
-//   startButton.textContent = 'Начать отсчёт';
-//   startButton.style.width = '150px';
+export function getPositionMenuToWindow(event, menu) {
+  const { clientX, clientY } = event;
+  const { innerWidth, innerHeight } = window;
+  const { offsetWidth, offsetHeight } = menu;
 
-//   document.body.append(timerContainer);
-//   document.body.append(timeInput);
-//   document.body.append(startButton);
-// }
+  if (innerWidth - clientX < offsetWidth) {
+    menu.style.left = `${innerWidth - offsetWidth}px`;
+  } else {
+    menu.style.left = `${clientX}px`;
+  }
+
+  if (innerHeight - clientY < offsetHeight) {
+    menu.style.top = `${innerHeight - offsetHeight}px`;
+  } else {
+    menu.style.top = `${clientY}px`;
+  }
+}
+
+export function changeFirstCharString(str) {
+  if (str.length) {
+    return str[0].toUpperCase() + str.slice(1);
+  }
+}
