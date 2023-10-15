@@ -21,8 +21,4 @@ export class CustomMessageModule extends Module {
       messageDivWrapper.remove();
     }, 3000);
   }
-
-  // handleClick() {
-  //   this.trigger();
-  // }
 }
