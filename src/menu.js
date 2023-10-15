@@ -1,6 +1,7 @@
 import { Menu } from "./core/menu";
 import { getPositionMenuToWindow } from "./utils";
-//import { BackgroundModule } from "./modules/background.module";
+import { BackgroundModule } from "./modules/background.module";
+import { CustomMessageModule } from "./modules/customMessage.module";
 
 export class ContextMenu extends Menu {
   constructor(selector) {
@@ -31,11 +32,12 @@ export class ContextMenu extends Menu {
   #runModule(type, text) {
     switch (type) {
       case "background":
-        // const backgroundModule = new BackgroundModule(type, text);
-        // backgroundModule.trigger();
+        const backgroundModule = new BackgroundModule(type, text);
+        backgroundModule.trigger();
         break;
       case "message":
-        console.log(type, text);
+        const customMessageModule = new CustomMessageModule(type, text);
+        customMessageModule.trigger();
         break;
       case "sound":
         console.log(type, text);

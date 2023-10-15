@@ -5,7 +5,7 @@ import "./styles.css";
 const options = [
   {
     type: "background",
-    text: "Поменять цвет",
+    text: "Поменять цвет фона",
   },
   {
     type: "message",
