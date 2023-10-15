@@ -23,6 +23,10 @@ const options = [
     type: "timer",
     text: "Показать таймер",
   },
+  {
+    type: "click",
+    text: "Считать клики (за 3 секунды)",
+  }
 ];
 
 const contextMenu = new ContextMenu("#menu");

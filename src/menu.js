@@ -1,5 +1,6 @@
 import { Menu } from "./core/menu";
 import { getPositionMenuToWindow } from "./utils";
+import { ClickCounterModule } from "./modules/clickCounter.module";
 import { BackgroundModule } from "./modules/background.module";
 import { CustomMessageModule } from "./modules/customMessage.module";
 import SoundModule from "./modules/sound.module";
@@ -53,6 +54,10 @@ export class ContextMenu extends Menu {
       case "timer":
         const timerModule = new TimerModule(type, text);
         timerModule.trigger();
+        break;
+      case "click":
+        const clickCounterModule = new ClickCounterModule(type, text);
+        clickCounterModule.trigger();
         break;
     }
   }
