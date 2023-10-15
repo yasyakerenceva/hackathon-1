@@ -1,7 +1,11 @@
 import { Menu } from "./core/menu";
 import { getPositionMenuToWindow } from "./utils";
 import { ClickCounterModule } from "./modules/clickCounter.module";
+import { BackgroundModule } from "./modules/background.module";
 import { CustomMessageModule } from "./modules/customMessage.module";
+import SoundModule from "./modules/sound.module";
+import { DayWeekModule } from "./modules/dayWeek.module";
+import { TimerModule } from "./modules/timer.module";
 
 export class ContextMenu extends Menu {
   constructor(selector) {
@@ -32,8 +36,8 @@ export class ContextMenu extends Menu {
   #runModule(type, text) {
     switch (type) {
       case "background":
-        const clickCounterModule = new ClickCounterModule(type, text);
-        clickCounterModule.trigger();
+        const backgroundModule = new BackgroundModule(type, text);
+        backgroundModule.trigger();
         break;
       case "message":
         const customMessageModule = new CustomMessageModule(type, text);
@@ -42,6 +46,18 @@ export class ContextMenu extends Menu {
       case "sound":
         const soundModule = new SoundModule(type, text);
         soundModule.trigger();
+        break;
+      case "week":
+        const dayWeekModule = new DayWeekModule(type, text);
+        dayWeekModule.trigger();
+        break;
+      case "timer":
+        const timerModule = new TimerModule(type, text);
+        timerModule.trigger();
+        break;
+      case "click":
+        const clickCounterModule = new ClickCounterModule(type, text);
+        clickCounterModule.trigger();
         break;
     }
   }
