@@ -1,11 +1,25 @@
-import { CustomMessageModule } from "./modules/customMessage.module";
-const message = new CustomMessageModule("message", "Вызвать сообщение");
-message.trigger();
+import { Module } from "./core/module";
+import { ContextMenu } from "./menu";
+import "./styles.css";
 
-// const menuLi = document.getElementsByClassName("menu-custom-message");
+const options = [
+  {
+    type: "background",
+    text: "Поменять цвет",
+  },
+  {
+    type: "message",
+    text: "Вызвать сообщение",
+  },
+  {
+    type: "sound",
+    text: "Воспроизвести звук",
+  },
+];
 
-// document.addEventListener("click", (event) => {
-//   if (event.target === menuLi[0]) {
-//     message.trigger();
-//   }
-// });
+const contextMenu = new ContextMenu("#menu");
+
+options.forEach((option) => {
+  const module = new Module(option.type, option.text);
+  contextMenu.add(module);
+});
