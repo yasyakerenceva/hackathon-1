@@ -1,5 +1,25 @@
-import './styles.css'
+import { Module } from "./core/module";
+import { ContextMenu } from "./menu";
+import "./styles.css";
 
-import { BackgroundModule } from './modules/background.module';
-const backgroundModule = new BackgroundModule('random-background', 'Случайный фон');
-backgroundModule.trigger();
+const options = [
+  {
+    type: "background",
+    text: "Поменять цвет",
+  },
+  {
+    type: "message",
+    text: "Вызвать сообщение",
+  },
+  {
+    type: "sound",
+    text: "Воспроизвести звук",
+  },
+];
+
+const contextMenu = new ContextMenu("#menu");
+
+options.forEach((option) => {
+  const module = new Module(option.type, option.text);
+  contextMenu.add(module);
+});
