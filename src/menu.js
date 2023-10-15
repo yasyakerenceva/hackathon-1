@@ -2,6 +2,7 @@ import { Menu } from "./core/menu";
 import { getPositionMenuToWindow } from "./utils";
 import { BackgroundModule } from "./modules/background.module";
 import { CustomMessageModule } from "./modules/customMessage.module";
+import SoundModule from "./modules/sound.module";
 
 export class ContextMenu extends Menu {
   constructor(selector) {
@@ -40,7 +41,8 @@ export class ContextMenu extends Menu {
         customMessageModule.trigger();
         break;
       case "sound":
-        console.log(type, text);
+        const soundModule = new SoundModule(type, text);
+        soundModule.trigger();
         break;
     }
   }
